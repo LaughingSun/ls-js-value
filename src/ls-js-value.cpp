@@ -27,7 +27,7 @@ public:
       
       typedef bool boolean_t;
       typedef long integral_t;
-      typedef double floating_t;
+      typedef double float_t;
       typedef std::string string_t;
       typedef std::vector<Value*> array_t;
       typedef std::unordered_map<string_t,Value*> object_t;
@@ -37,7 +37,7 @@ public:
         , t_null
         , t_boolean
         , t_integral
-        , t_floating
+        , t_float
         , t_string
         , t_array
         , t_object
@@ -48,7 +48,7 @@ public:
       typedef union value {
         boolean_t   _boolean;
         integral_t  _integral;
-        floating_t  _floating;
+        float_t  _float;
         string_t*   _string;
         array_t*    _array;
         object_t*   _object;
@@ -75,7 +75,7 @@ public:
       
       template <typename T>
       explicit Value ( T val, typename std::enable_if<std::is_floating_point<T>::value, T>::type=0 )
-        : _type( t_floating ), _value( { ._floating = floating_t( val ) } ) {
+        : _type( t_float ), _value( { ._float = float_t( val ) } ) {
         std::cout << " <- Value ( integral_t val )";
       }
       
@@ -122,8 +122,8 @@ public:
             return _value._boolean;
           case t_integral:
             return _value._integral;
-          case t_floating:
-            return _value._floating;
+          case t_float:
+            return _value._float;
           case t_string:
             return !! _value._string->length();
           case t_array:
@@ -140,27 +140,27 @@ public:
             return _value._boolean;
           case t_integral:
             return _value._integral;
-          case t_floating:
-            return _value._floating;
+          case t_float:
+            return _value._float;
           case t_string:
             return std::stol( *_value._string );
         }
         throw std::invalid_argument( "Not a integral_t" );
       }
       
-      operator floating_t ( ) const {
+      operator float_t ( ) const {
         switch ( _type ) {
           case t_null:
           case t_boolean:
             return _value._boolean;
           case t_integral:
             return _value._integral;
-          case t_floating:
-            return _value._floating;
+          case t_float:
+            return _value._float;
           case t_string:
             return std::stod( *_value._string );
         }
-        throw std::invalid_argument( "Not a floating_t" );
+        throw std::invalid_argument( "Not a float_t" );
       }
       
       operator string_t ( ) const {
@@ -171,8 +171,8 @@ public:
             return _value._boolean ? "true" : "false";
           case t_integral:
             return _IToS( _value._integral );
-          case t_floating:
-            return _FToS( _value._floating );
+          case t_float:
+            return _FToS( _value._float );
           case t_string:
             return *_value._string;
           case t_array:
@@ -209,13 +209,13 @@ public:
       template <typename T>
       bool equivalent ( T val, typename std::enable_if<std::is_integral<T>::value, T>::type=0 ) const {
         if ( _type == t_integral ) return val == _value._integral;
-        if ( _type == t_floating ) return floating_t( val ) == _value._floating;
+        if ( _type == t_float ) return float_t( val ) == _value._float;
         return false;
       }
       
-      bool equivalent ( floating_t val ) const {
-        if ( _type != t_floating ) return false;
-        return val == _value._floating;
+      bool equivalent ( float_t val ) const {
+        if ( _type != t_float ) return false;
+        return val == _value._float;
       }
       
       bool equivalent ( const char* val ) const {
@@ -265,8 +265,16 @@ public:
         return _type == t_boolean;
       }
       
+      bool is_int ( ) const {
+        return _type == t_integral;
+      }
+      
+      bool is_float ( ) const {
+        return _type == t_float;
+      }
+      
       bool is_number ( ) const {
-        return _type == t_integral || _type == t_floating;
+        return _type == t_integral || _type == t_float;
       }
       
       bool is_string ( ) const {
@@ -299,7 +307,7 @@ protected:
        */
       
       static string_t _IToS ( integral_t val );
-      static string_t _FToS ( floating_t val );
+      static string_t _FToS ( float_t val );
       static string_t _Concat ( array_t* val );
       
     };  // class Value
@@ -309,7 +317,7 @@ protected:
       , "null"
       , "boolean"
       , "number"  // _integral
-      , "number"  // _floating
+      , "number"  // _float
       , "string"
       , "array"
       , "object"
@@ -323,7 +331,7 @@ protected:
       return result;
     }
 
-    Value::string_t Value::_FToS ( floating_t val ) {
+    Value::string_t Value::_FToS ( float_t val ) {
       std::stringstream ss;
       Value::string_t result;
       ss << val;
@@ -350,7 +358,7 @@ protected:
         case Value::t_null:
         case Value::t_boolean:
         case Value::t_integral:
-        case Value::t_floating:
+        case Value::t_float:
         case Value::t_string:
         case Value::t_array:
           return os << Value::string_t( val );
@@ -389,7 +397,7 @@ std::cout << ".is_object(): " << a.is_object() << "; "; \
 std::cout << std::endl; \
 CAST(a,boolean_t) \
 CAST(a,integral_t) \
-CAST(a,floating_t) \
+CAST(a,float_t) \
 CAST(a,string_t) \
 /* CAST(a,array_t) \
 CAST(a,object_t) */ \
@@ -412,7 +420,7 @@ std::cout << ".is_object(): " << a.is_object() << "; "; \
 std::cout << std::endl; \
 CAST(a,boolean_t) \
 CAST(a,integral_t) \
-CAST(a,floating_t) \
+CAST(a,float_t) \
 CAST(a,string_t) \
 /* CAST(a,array_t) \
 CAST(a,object_t) */ \
@@ -421,7 +429,7 @@ try {  \
   switch ( a.type( ) ) { \
     case Value::t_boolean: \
     case Value::t_integral: \
-    case Value::t_floating: \
+    case Value::t_float: \
     case Value::t_string: \
     case Value::t_array: \
     case Value::t_object: \
@@ -463,9 +471,9 @@ int main ( int argc, char* argv[] ) {
   TEST1(numi43,double( 0 ));
   TEST1(numi44,double( 44 ));
   TEST1(numi45,double( 45.45 ));
-  TEST1(numi46,Value::floating_t( 0 ));
-  TEST1(numi47,Value::floating_t( 21 ));
-  TEST1(numi48,Value::floating_t( 22.22 ));
+  TEST1(numi46,Value::float_t( 0 ));
+  TEST1(numi47,Value::float_t( 21 ));
+  TEST1(numi48,Value::float_t( 22.22 ));
   
   TEST1(str50,"const char* #50");
   TEST1(str51,Value::string_t( "string_t #51" ));
