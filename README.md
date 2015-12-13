@@ -4,6 +4,7 @@ A javascript/ecmascript implementation of native types: undefined, null, NaN, In
 So far I have working code all in one file. However this is only a praceholder for the moment.  Check back in a week or so I will have the full implementation and some docs.
 
 TODO:
+
 1. seperate out the header from the source
 2. add istream support
 3. finish casting for arrays and objects
