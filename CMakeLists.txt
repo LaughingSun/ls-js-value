@@ -1,38 +1,37 @@
+
 cmake_minimum_required(VERSION 2.8.9)
-project(to-endian)
+
+set(PROJ_NAME "ls-js-value")
+
+set(SEP "/")
+
+set(PROJ_SOURCE_DIR "${PROJECT_BINARY_DIR}/src")
+set(PROJ_INCLUDE_DIR "${PROJECT_BINARY_DIR}/include")
+
+file(GLOB SOURCES "${PROJ_SOURCE_DIR}/*.cpp")
+file(GLOB HEADERS "${PROJ_INCLUDE_DIR}/*.hpp")
+
+set(PROJ_RUNTIME_DIR ${PROJECT_BINARY_DIR}/bin)
+
+message(STATUS "PROJ_NAME         = ${PROJ_NAME}")
+message(STATUS "PROJ_SOURCE_DIR   = ${PROJ_SOURCE_DIR}")
+message(STATUS "PROJ_INCLUDE_DIR  = ${PROJ_INCLUDE_DIR}")
+message(STATUS "PROJ_RUNTIME_DIR  = ${PROJ_RUNTIME_DIR}")
+
+project(ls-js-value-test)
 
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_COMPILER_IS_GNUCXX TRUE)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJ_RUNTIME_DIR}")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}${SEP}${PROJ_RUNTIME_DIR}")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
-set(SOURCE_DIR ${CMAKE_BINARY_DIR}/src)
-set(INCLUDE_DIR ${CMAKE_BINARY_DIR}/include)
-include_directories("${INCLUDE_DIR}")
-file(GLOB COMMON_HDRS "${INCLUDE_DIR}/*.hpp" "${INCLUDE_DIR}/*.cpp")
-file(GLOB SOURCES "${SOURCE_DIR}/*.cpp")
-string(REGEX REPLACE "${SOURCE_DIR}/([a-z-]+)\\.cpp" "\\1" BINARIES "${SOURCES}")
+include_directories("${PROJ_INCLUDE_DIR}")
+add_library("${PROJ_NAME}" SHARED "${SOURCES}")
+set_target_properties(${PROJ_NAME} PROPERTIES LINKER_LANGUAGE CXX) 
 
-message(STATUS "SOURCE_DIR=${SOURCE_DIR}")
-message(STATUS "INCLUDE_DIR=${INCLUDE_DIR}")
-message(STATUS "COMMON_HDRS=${COMMON_HDRS}")
-message(STATUS "SOURCES=${SOURCES}")
-message(STATUS "BINARIES=${BINARIES}")
 
-#
-# loop foreach target
-#
-
-foreach(MAIN_EXE IN LISTS BINARIES)
-
-set(MAIN_SRC "${SOURCE_DIR}/${MAIN_EXE}.cpp")
-
-message(STATUS "${MAIN_EXE}: ${MAIN_SRC} ${COMMON_HDRS}")
-
-add_executable("${MAIN_EXE}" "${MAIN_SRC}")
-
-endforeach(MAIN_EXE)
 
 
 
