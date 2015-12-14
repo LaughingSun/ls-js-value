@@ -1,0 +1,70 @@
+==4952== 
+==4952== HEAP SUMMARY:
+==4952==     in use at exit: 73,279 bytes in 20 blocks
+==4952==   total heap usage: 78 allocs, 58 frees, 94,231 bytes allocated
+==4952== 
+==4952== 24 bytes in 1 blocks are definitely lost in loss record 7 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x417B63: main (ls-js-value-test.cpp:112)
+==4952== 
+==4952== 24 bytes in 1 blocks are definitely lost in loss record 8 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x417B7F: main (ls-js-value-test.cpp:112)
+==4952== 
+==4952== 24 bytes in 1 blocks are definitely lost in loss record 9 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x417F97: main (ls-js-value-test.cpp:112)
+==4952== 
+==4952== 32 bytes in 1 blocks are definitely lost in loss record 10 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x41F8E7: ls::js::Value::Value(char const*) (ls-js-value.cpp:45)
+==4952==    by 0x415F84: main (ls-js-value-test.cpp:105)
+==4952== 
+==4952== 49 (32 direct, 17 indirect) bytes in 1 blocks are definitely lost in loss record 11 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x417028: main (ls-js-value-test.cpp:108)
+==4952== 
+==4952== 49 (32 direct, 17 indirect) bytes in 1 blocks are definitely lost in loss record 12 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x417071: main (ls-js-value-test.cpp:108)
+==4952== 
+==4952== 49 (32 direct, 17 indirect) bytes in 1 blocks are definitely lost in loss record 13 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x4174B6: main (ls-js-value-test.cpp:108)
+==4952== 
+==4952== 52 (32 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 14 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x416A5C: main (ls-js-value-test.cpp:107)
+==4952== 
+==4952== 52 (32 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 15 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x416AA5: main (ls-js-value-test.cpp:107)
+==4952== 
+==4952== 52 (32 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 16 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x416EEA: main (ls-js-value-test.cpp:107)
+==4952== 
+==4952== 56 bytes in 1 blocks are definitely lost in loss record 17 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x418624: main (ls-js-value-test.cpp:116)
+==4952== 
+==4952== 56 bytes in 1 blocks are definitely lost in loss record 18 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x418640: main (ls-js-value-test.cpp:116)
+==4952== 
+==4952== 56 bytes in 1 blocks are definitely lost in loss record 19 of 20
+==4952==    at 0x4C2C12F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==4952==    by 0x418A4F: main (ls-js-value-test.cpp:116)
+==4952== 
+==4952== LEAK SUMMARY:
+==4952==    definitely lost: 464 bytes in 13 blocks
+==4952==    indirectly lost: 111 bytes in 6 blocks
+==4952==      possibly lost: 0 bytes in 0 blocks
+==4952==    still reachable: 72,704 bytes in 1 blocks
+==4952==         suppressed: 0 bytes in 0 blocks
+==4952== Reachable blocks (those to which a pointer was found) are not shown.
+==4952== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==4952== 
+==4952== For counts of detected and suppressed errors, rerun with: -v
+==4952== ERROR SUMMARY: 13 errors from 13 contexts (suppressed: 0 from 0)
+
