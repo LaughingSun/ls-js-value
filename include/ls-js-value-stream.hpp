@@ -14,9 +14,7 @@ std::ostream& operator<< ( std::ostream& os, ls::js::Value val )
     case Value::t_boolean:
     case Value::t_integral:
     case Value::t_float:
-      return os << Value::string_t( val );
     case Value::t_string:
-      return os << Value::string_t( val );
     case Value::t_array:
     case Value::t_object:
       return os << Value::string_t( val );

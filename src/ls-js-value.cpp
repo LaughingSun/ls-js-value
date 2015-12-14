@@ -7,7 +7,7 @@ using namespace ls::js;
  *  class Value constructors
  */
 
-extern
+
 Value::Value ( ) : _type( t_null ), _value( { ._boolean = boolean_t( false ) } ) {
   std::cout << " <- Value ( )";
 }

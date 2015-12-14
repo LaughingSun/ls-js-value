@@ -101,7 +101,7 @@ public:
       
       explicit Value ( type_t val );
       
-//      Value ( Value& val );
+//      explicit Value ( Value& val );
       
       /*
        *  class Value cast operators
