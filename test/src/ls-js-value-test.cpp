@@ -21,11 +21,11 @@ std::cout << ".is_string(): " << a.is_string() << "; "; \
 std::cout << ".is_array(): " << a.is_array() << "; "; \
 std::cout << ".is_object(): " << a.is_object() << "; "; \
 std::cout << std::endl; \
-CAST(a,boolean_t) \
+/* CAST(a,boolean_t) \
 CAST(a,integral_t) \
 CAST(a,float_t) \
 CAST(a,string_t) \
-/* CAST(a,array_t) \
+CAST(a,array_t) \
 CAST(a,object_t) */ \
 std::cout << std::endl; \
 std::cout << "\x1b[32m[PASS]\x1b[0m; "; \
@@ -34,7 +34,6 @@ std::cout << std::endl;
 
 #define TEST1(a,b) \
 std::cout << "== Value " << #a << "( " << #b << " ): "; \
-auto a ## Arg = b; \
 Value a( b ); \
 std::cout << "; .get_type(): " << a.get_type( ) << '(' << a.type() << ')' << "; " << std::endl; \
 std::cout << ".is_null(): " << a.is_null( ) << "; "; \
@@ -70,7 +69,7 @@ std::cout << std::endl;
 
 
 
-int main ( int argc, char* argv[] ) {
+int test ( ) {
 
   using namespace ls::js;
   
@@ -102,19 +101,33 @@ int main ( int argc, char* argv[] ) {
   TEST1(numi47,Value::float_t( 21 ));
   TEST1(numi48,Value::float_t( 22.22 ));
   
-  TEST1(str50,"const char* #50");
+// causes unavoidable memory leak:  TEST1(str50,"const char* #50");
   TEST1(str51,Value::string_t( "string_t #51" ));
-  TEST1(str52,new std::string( "new std::string #52" ));
-  TEST1(str53,new Value::string_t( "new string_t #53" ));
+  std::string s_52( "new std::string #52" );
+  TEST1(str52,s_52);
+  Value::string_t* s_53p = new Value::string_t( "new string_t #53" );
+  TEST1(str53,s_53p); // line 108
+  delete s_53p;
   
-  Value::array_t a_0;
-  TEST1(arr60,a_0);
-  TEST1(arr61,new Value::array_t);
+  Value::array_t a_60;
+  TEST1(arr60,a_60);
+  Value::array_t* a_61p = new Value::array_t;
+  TEST1(arr61,a_61p);
+  delete a_61p;
   
   Value::object_t o_0;
   TEST1(obj70,o_0);
-  TEST1(obj71,new Value::object_t);
+  Value::object_t* o_71p = new Value::object_t;
+  TEST1(obj71,o_71p);
+  delete o_71p;
   
+//  str50 = NULL;
+//  free( (void*)&str52 );
+//  free( (void*)&str53 );
+}
+
+int main ( int argc, char* argv[] ) {
+  test( );
   return 0;
 }
 

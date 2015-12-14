@@ -42,9 +42,9 @@ Value::Value ( bool val ) : _type( t_boolean ), _value( { ._boolean = val } ) {
   std::cout << " <- Value ( bool val )";
 }
 
-Value::Value ( const char* val ) : _type( t_string ), _value( { ._string = new string_t( val ) }  ) {
-  std::cout << " <- Value ( const char* val )";
-}
+//Value::Value ( const char* val ) : _type( t_string ), _value( { ._string = new string_t( val ) }  ) {
+//  std::cout << " <- Value ( const char* val )";
+//}
 
 Value::Value ( string_t val ) : _type( t_string ), _value( { ._string = &val } ) {
   std::cout << " <- Value ( string_t val )";
@@ -141,7 +141,10 @@ Value::operator integral_t ( ) const {
     case t_float:
       return _value._float;
     case t_string:
-      return std::stol( *_value._string );
+      try {
+        return std::stol( *_value._string );
+      } catch ( std::exception& e ) {
+      }
     case t_array:
     case t_object:
     case t_nan:
@@ -163,7 +166,10 @@ Value::operator float_t ( ) const {
     case t_float:
       return _value._float;
     case t_string:
-      return std::stod( *_value._string );
+      try {
+        return std::stod( *_value._string );
+      } catch ( std::exception& e ) {
+      }
     case t_array:
     case t_object:
     case t_nan:
