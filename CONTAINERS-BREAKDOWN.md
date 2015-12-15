@@ -23,7 +23,7 @@
 
 `string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container, SequentialContainer and AllocatorAwareContainer; and must use a <charT> value.
 
-`array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> value.
+`array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
 
 `object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
