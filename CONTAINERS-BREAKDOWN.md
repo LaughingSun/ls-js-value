@@ -14,14 +14,14 @@
 | stack        |          | yes     |          | yes |       |      |      |       |
 | queue        |          | yes     |          | yes |       |      |      |       |
 | priority_queue|         | yes     |          | yes |       |      |      |       |
-| set          |          | yes     | yes      |     | yes   |      | yes  |       |
 | map          |          |         | yes      |     | yes   |      | yes  |       |
+| set          |          |         |          |     | yes   |      | yes  |       |
 | unordered_map|          |         | yes      |     | yes   |      | yes  |       |
-| unordered_set|          |         |          |     |       |      |      |       |
-| multiset     |          |         |          |     |       |      |      | yes   |
-| multimap     |          |         |          |     |       |      |      | yes   |
-| unordered_multiset|     |         |          |     |       |      |      | yes   |
-| unordered_multimap|     |         |          |     |       |      |      | yes   |
+| unordered_set|          |         |          |     | yes   |      |      |       |
+| multimap     |          |         |          |     | yes   |      |      | yes   |
+| multiset     |          |         |          |     | yes   |      |      | yes   |
+| unordered_multimap|     |         |          |     | yes   |      |      | yes   |
+| unordered_multiset|     |         |          |     | yes   |      |      | yes   |
 
 
 
