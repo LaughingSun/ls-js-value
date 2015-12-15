@@ -3,7 +3,7 @@
 
 ls::js::Value uses 
 
-`string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container, SequentialContainer and AllocatorAwareContainer; and must use a <charT> value.
+`string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of  Container, SequentialContainer, AllocatorAwareContainer and ContiguousContainer(since C++17); and must use a <charT> value.
 
 `array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
 
@@ -29,4 +29,25 @@ ls::js::Value uses
 |              | AssociativeContainer  | notes |
 | object_t | unordered_map | desc |
 |              | AssociativeContainer  | notes |
+
+Reference and related links:
+
+1. http://en.cppreference.com/w/cpp/concept/Container
+2. http://en.cppreference.com/w/cpp/concept/AssociativeContainer
+2. http://en.cppreference.com/w/cpp/concept/SequenceContainer
+3. http://en.cppreference.com/w/cpp/concept/UnorderedAssociativeContainer
+5. http://en.cppreference.com/w/cpp/string
+4. http://en.cppreference.com/w/cpp/string/basic_string
+4. http://en.cppreference.com/w/cpp/container
+4. http://en.cppreference.com/w/cpp/container/map
+5. http://en.cppreference.com/w/cpp/container/unordered_map
+6. http://en.cppreference.com/w/cpp/container/array
+7. http://en.cppreference.com/w/cpp/container/deque
+8. http://en.cppreference.com/w/cpp/container/forward_list
+9. http://en.cppreference.com/w/cpp/container/list
+10. http://en.cppreference.com/w/cpp/container/vector
+11. a
+12. a
+8. http://en.cppreference.com/w/cpp/memory/allocator
+
 
