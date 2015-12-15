@@ -13,6 +13,15 @@
 | list         |          | yes     |          | yes |       |      | yes  |       |
 | map          |          |         | yes      |     | yes   |      | yes  |       |
 | unordered_map|          |         | yes      |     | yes   |      | yes  |       |
+| set          |          |         | yes      |     | yes   |      | yes  |       |
+| multiset     |          |         |       |     |    |      |   |       |
+| multimap     |          |         |       |     |    |      |   |       |
+| unordered_set|          |         |       |     |    |      |   |       |
+| unordered_multiset|          |         |       |     |    |      |   |       |
+| unordered_multimap|          |         |       |     |    |      |   |       |
+| stack        |          |         |       |     |    |      |   |       |
+| queue        |          |         |       |     |    |      |   |       |
+| priority_queue|          |         |       |     |    |      |   |       |
 
 
 
