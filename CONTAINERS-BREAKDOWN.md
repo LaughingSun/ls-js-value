@@ -19,6 +19,9 @@ Array_t std and stl class candidates:
 + `template<class T, class Allocator = std::allocator<T>> class list;`
 + `template<class T, class Allocator = std::allocator<T>> class vector;`
 + `template<class T, class Container = std::deque<T>> class stack;`
++ `template<class T, class Container = std::vector<T>, class Compare = std::less<typename Container::value_type>> class priority_queue;`
++ `template<class T, class Container = std::deque<T>> class queue;`
++ `template<class Key, class Compare = std::less<Key>, class Allocator = std::allocator<Key>> class set;`
 
 `object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
@@ -51,20 +54,22 @@ Reference and related links:
 
 1. http://en.cppreference.com/w/cpp/concept/Container
 2. http://en.cppreference.com/w/cpp/concept/AssociativeContainer
-2. http://en.cppreference.com/w/cpp/concept/SequenceContainer
-3. http://en.cppreference.com/w/cpp/concept/UnorderedAssociativeContainer
+3. http://en.cppreference.com/w/cpp/concept/SequenceContainer
+4. http://en.cppreference.com/w/cpp/concept/UnorderedAssociativeContainer
 5. http://en.cppreference.com/w/cpp/string
-4. http://en.cppreference.com/w/cpp/string/basic_string
-4. http://en.cppreference.com/w/cpp/container
-4. http://en.cppreference.com/w/cpp/container/map
-5. http://en.cppreference.com/w/cpp/container/unordered_map
-6. http://en.cppreference.com/w/cpp/container/array
-7. http://en.cppreference.com/w/cpp/container/deque
-8. http://en.cppreference.com/w/cpp/container/forward_list
-9. http://en.cppreference.com/w/cpp/container/list
-10. http://en.cppreference.com/w/cpp/container/vector
-11. a
-12. a
-8. http://en.cppreference.com/w/cpp/memory/allocator
+6. http://en.cppreference.com/w/cpp/string/basic_string
+7. http://en.cppreference.com/w/cpp/container
+8. http://en.cppreference.com/w/cpp/container/map
+9. http://en.cppreference.com/w/cpp/container/unordered_map
+10. http://en.cppreference.com/w/cpp/container/array
+11. http://en.cppreference.com/w/cpp/container/deque
+12. http://en.cppreference.com/w/cpp/container/forward_list
+13. http://en.cppreference.com/w/cpp/container/list
+14. http://en.cppreference.com/w/cpp/container/vector
+15. http://en.cppreference.com/w/cpp/container/stack
+16. http://en.cppreference.com/w/cpp/container/priority_queue
+17. http://en.cppreference.com/w/cpp/container/queue
+18. http://en.cppreference.com/w/cpp/container/set
+19. http://en.cppreference.com/w/cpp/memory/allocator
 
 
