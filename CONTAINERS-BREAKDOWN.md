@@ -11,6 +11,9 @@
 | deque        |          | yes     |          | yes |       |      | yes  |       |
 | forward_list |          | yes     |          | yes |       |      | yes  |       |
 | list         |          | yes     |          | yes |       |      | yes  |       |
+| stack        |          |         |       |     |    |      |   |       |
+| queue        |          |         |       |     |    |      |   |       |
+| priority_queue|          |         |       |     |    |      |   |       |
 | map          |          |         | yes      |     | yes   |      | yes  |       |
 | unordered_map|          |         | yes      |     | yes   |      | yes  |       |
 | set          |          |         | yes      |     | yes   |      | yes  |       |
@@ -19,9 +22,6 @@
 | unordered_set|          |         |       |     |    |      |   |       |
 | unordered_multiset|          |         |       |     |    |      |   |       |
 | unordered_multimap|          |         |       |     |    |      |   |       |
-| stack        |          |         |       |     |    |      |   |       |
-| queue        |          |         |       |     |    |      |   |       |
-| priority_queue|          |         |       |     |    |      |   |       |
 
 
 
