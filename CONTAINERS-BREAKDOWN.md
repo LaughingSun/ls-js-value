@@ -1,13 +1,32 @@
 
-### Container breakdown as ls-js-types
+# Containers
 
-ls::js::Value uses 
+## Containers feature support
+
+| library      | string_t | array_t | object_t | seq | assoc | char | comp | multi |
+| ------------ | :------: | :-----: | :------: | :-: | :---: | :--: | :--: | :---: |
+| string       | yes      |         |          | yes |       | yes  | yes  |       |
+| array        |          | yes     |          | yes |       |      | yes  |       |
+| vector       |          | yes     |          | yes |       |      | yes  |       |
+| deque        |          | yes     |          | yes |       |      | yes  |       |
+| forward_list |          | yes     |          | yes |       |      | yes  |       |
+| list         |          | yes     |          | yes |       |      | yes  |       |
+| map          |          |         | yes      |     | yes   |      | yes  |       |
+| unordered_map|          |         | yes      |     | yes   |      | yes  |       |
+
+
+
+## ls::js::Value::* interface types:
+
+### Containers suitable as a ls::js::Value::string_t
 
 `string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of  Container, SequentialContainer, AllocatorAwareContainer and ContiguousContainer(since C++17); and must use a <charT> value.
 
 String_t&lt;SequenceContainers, class char_traits, class Allocator&gt; std and stl class candidates:
 
 + `template<class CharT, class Traits = std::char_traits<CharT>, class Allocator = std::allocator<CharT>> class basic_string;`
+
+### Containers suitable as a ls::js:Value::array_t
 
 `array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
 
@@ -22,6 +41,8 @@ Array_t&lt;SequenceContainers, class !char_traits, class Allocator&gt; std and s
 + `template<class T, class Container = std::vector<T>, class Compare = std::less<typename Container::value_type>> class priority_queue;`
 + `template<class T, class Container = std::deque<T>> class queue;`
 + `template<class Key, class Compare = std::less<Key>, class Allocator = std::allocator<Key>> class set;`
+
+### Containers suitable as a ls::js:Value::object_t
 
 `object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
