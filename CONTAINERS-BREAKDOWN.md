@@ -21,7 +21,7 @@ Array_t std and stl class candidates:
 Object_t std and stl class candidates:
 
 + template<class Key, class T, class Hash = std::hash<Key>, class KeyEqual = std::equal_to<Key>, class Allocator = std::allocator< std::pair<const Key, T>>> class unordered_map;
-+ 
++ template<class Key, class T, class Compare = std::less<Key>, class Allocator = std::allocator<std::pair<const Key, T>>> class map;
 
 
 | ls-js-value type | class / concept    | description / notes            |
