@@ -24,7 +24,7 @@ Object_t std and stl class candidates:
 + 
 
 
-| ls-js-value type | stl class    | desc            |
+| ls-js-value type | class / concept    | description / notes            |
 | ---------------- | ------------ | --------------- |
 | string_t | basic_string | stores and manipulates sequences of characters |
 |              |  | Character data general usage |
