@@ -5,13 +5,13 @@ ls::js::Value uses
 
 `string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of  Container, SequentialContainer, AllocatorAwareContainer and ContiguousContainer(since C++17); and must use a <charT> value.
 
-String_t<SequenceContainers, class char_traits, class Allocator> std and stl class candidates:
+String_t&lt;SequenceContainers, class char_traits, class Allocator&gt; std and stl class candidates:
 
 + `template<class CharT, class Traits = std::char_traits<CharT>, class Allocator = std::allocator<CharT>> class basic_string;`
 
 `array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
 
-Array_t<SequenceContainers, class !char_traits, class Allocator> std and stl class candidates:
+Array_t&lt;SequenceContainers, class !char_traits, class Allocator&gt; std and stl class candidates:
 
 + `template<class T, std::size_t N > struct array;`
 + `template<class T, class Allocator = std::allocator<T>> class deque;`
@@ -25,7 +25,7 @@ Array_t<SequenceContainers, class !char_traits, class Allocator> std and stl cla
 
 `object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
-Object_t<AssociativeContainer | UnorderedAssociativeContainer> std and stl class candidates:
+Object_t&lt;AssociativeContainer | UnorderedAssociativeContainer&gt; std and stl class candidates:
 
 + `template<class Key, class T, class Compare = std::less<Key>, class Allocator = std::allocator<std::pair<const Key, T>>> class map;`
 + `template<class Key, class T, class Hash = std::hash<Key>, class KeyEqual = std::equal_to<Key>, class Allocator = std::allocator< std::pair<const Key, T>>> class unordered_map;`
