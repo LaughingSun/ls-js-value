@@ -14,14 +14,18 @@ String_t std and stl class candidates:
 Array_t std and stl class candidates:
 
 + `template<class T, std::size_t N > struct array;`
-+ 
++ `template<class T, class Allocator = std::allocator<T>> class deque;`
++ `template<class T, class Allocator = std::allocator<T>> class forward_list;`
++ `template<class T, class Allocator = std::allocator<T>> class list;`
++ `template<class T, class Allocator = std::allocator<T>> class vector;`
++ `template<class T, class Container = std::deque<T>> class stack;`
 
 `object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
 Object_t std and stl class candidates:
 
-+ template<class Key, class T, class Hash = std::hash<Key>, class KeyEqual = std::equal_to<Key>, class Allocator = std::allocator< std::pair<const Key, T>>> class unordered_map;
-+ template<class Key, class T, class Compare = std::less<Key>, class Allocator = std::allocator<std::pair<const Key, T>>> class map;
++ `template<class Key, class T, class Compare = std::less<Key>, class Allocator = std::allocator<std::pair<const Key, T>>> class map;`
++ `template<class Key, class T, class Hash = std::hash<Key>, class KeyEqual = std::equal_to<Key>, class Allocator = std::allocator< std::pair<const Key, T>>> class unordered_map;`
 
 
 | ls-js-value type | class / concept    | description / notes            |
