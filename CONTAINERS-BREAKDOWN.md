@@ -15,13 +15,13 @@
 | queue        |          |         |       |     |    |      |   |       |
 | priority_queue|          |         |       |     |    |      |   |       |
 | map          |          |         | yes      |     | yes   |      | yes  |       |
-| unordered_map|          |         | yes      |     | yes   |      | yes  |       |
 | set          |          |         | yes      |     | yes   |      | yes  |       |
-| multiset     |          |         |       |     |    |      |   |       |
-| multimap     |          |         |       |     |    |      |   |       |
+| unordered_map|          |         | yes      |     | yes   |      | yes  |       |
 | unordered_set|          |         |       |     |    |      |   |       |
-| unordered_multiset|          |         |       |     |    |      |   |       |
-| unordered_multimap|          |         |       |     |    |      |   |       |
+| multiset     |          |         |       |     |    |      |   | yes      |
+| multimap     |          |         |       |     |    |      |   | yes      |
+| unordered_multiset|          |         |       |     |    |      |  | yes      |
+| unordered_multimap|          |         |       |     |    |      |  | yes      |
 
 
 
