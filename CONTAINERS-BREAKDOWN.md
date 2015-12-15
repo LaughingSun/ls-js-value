@@ -1,6 +1,16 @@
 
 ### Container breakdown as ls-js-types
 
+ls::js::Value uses 
+
+`string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container, SequentialContainer and AllocatorAwareContainer; and must use a <charT> value.
+
+`array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
+
+`object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
+
+
+
 | ls-js-value type | stl class    | desc            |
 | ---------------- | ------------ | --------------- |
 | string_t | basic_string | stores and manipulates sequences of characters |
@@ -19,11 +29,4 @@
 |              | AssociativeContainer  | notes |
 | object_t | unordered_map | desc |
 |              | AssociativeContainer  | notes |
-
-
-`string_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container, SequentialContainer and AllocatorAwareContainer; and must use a <charT> value.
-
-`array_t` are sequential containers that contain key-value pairs with unique keys that meet the requirements of Container, SequentialContainer and AllocatorAwareContainer; and must NOT use a <charT> element value.
-
-`object_t` are associative containers that contain key-value pairs with unique keys that meet the requirements of mapped_types, Container and AllocatorAwareContainer.
 
